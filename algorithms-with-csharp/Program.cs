@@ -29,6 +29,7 @@ namespace algorithms_with_csharp
             Console.WriteLine(uniqueElements);
 
             BinaryDigits(K);
+            Console.WriteLine("The number of binary digits in K is: {0}, represent by recursive method", BinRec(K));
         }
 
         /// <summary>
@@ -111,7 +112,7 @@ namespace algorithms_with_csharp
         /// Input: An integer
         /// Output: The number of binary digits in K's binary representation
         /// </summary>
-        /// <param name="K"> An integer</param>
+        /// <param name="K"> An integer </param>
         private static void BinaryDigits(int K)
         {
             int count = 1;
@@ -121,6 +122,25 @@ namespace algorithms_with_csharp
                 K /= 2;
             }
             Console.WriteLine("The number of binary digits in K is: {0}", count);
+        }
+
+        /// <summary>
+        /// Investigate a recursive version of the algorithm discussed at method "BinaryDigits"
+        /// Input: An integer
+        /// Output: The number of binary digits in K's binary representation
+        /// </summary>
+        /// <param name="K"> An integer </param>
+        /// <returns> Int of binary digits </returns>
+        private static int BinRec(int K)
+        {
+            if (K == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return BinRec(K / 2) + 1;
+            }
         }
     }
 }
