@@ -23,6 +23,7 @@ namespace algorithms_with_csharp
             Console.WriteLine("Search key is: {0}", K);
             
             SequentialSearch(A, K);
+            MaxElement(A);
         }
 
         /// <summary>
@@ -50,6 +51,27 @@ namespace algorithms_with_csharp
             {
                 Console.WriteLine("There are no matching: {0}", -1);
             }
+        }
+
+        /// <summary>
+        /// Determines the value of the largest element in a given array
+        /// Input: An array A[] of real numbers
+        /// Output: The value of the largest element in A
+        /// </summary>
+        /// <param name="A"> Input an array </param>
+        private static void MaxElement(int[] A)
+        {
+            int max = A[0];
+
+            for (int i = 1; i < A.Length; i++)
+            {
+                if (A[i] > max)
+                {
+                    max = A[i];
+                }
+            }
+
+            Console.WriteLine("The value of the largest element in A[] is: {0}", max);
         }
     }
 }
