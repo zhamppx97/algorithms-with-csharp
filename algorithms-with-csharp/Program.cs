@@ -11,7 +11,7 @@ namespace algorithms_with_csharp
     {
         static void Main(string[] args)
         {
-            int[] A = { 21, 12, 43, 34, 75, 26, 97, 88, 29, 10 };
+            int[] A = { 21, 12, 43, 34, 75, 26, 97, 88, 55, 10 };
             int K = 97;
 
             Console.Write("Value in array is: ");
@@ -30,6 +30,8 @@ namespace algorithms_with_csharp
 
             BinaryDigits(K);
             Console.WriteLine("The number of binary digits in K is: {0}, represent by recursive method", BinRec(K));
+
+            SelectionSort(A);
         }
 
         /// <summary>
@@ -140,6 +142,63 @@ namespace algorithms_with_csharp
             else
             {
                 return BinRec(K / 2) + 1;
+            }
+        }
+
+        /// <summary>
+        /// Exercises
+        /// </summary>
+        /// <param name="A"> Input an array </param>
+        private static void SortAnalysis(int[] A)
+        {
+            int count = 0;
+
+            for (int i = 1; i < A.Length; i++)
+            {
+                int v = A[i];
+                int j = i - 1;
+                while (j >= 0 && A[j] > v)
+                {
+                    count += 1;
+                    A[j + 1] = A[j];
+                    j -= 1;
+                }
+                A[j + 1] = v;
+            }
+
+            Console.WriteLine("Count is: {0}", count);
+        }
+
+        /// <summary>
+        /// Sorts a given array by selection sort
+        /// Input: An array A[] of orderable elements
+        /// Output: Array A[] sorted in nondecreasing order
+        /// </summary>
+        /// <param name="A"> Input an array </param>
+        private static void SelectionSort(int[] A)
+        {
+            int temp;
+            for (int i = 0; i < A.Length; i++)
+            {
+                int min = i;
+                for (int j = i + 1; j < A.Length; j++)
+                {
+                    if (A[j] < A[min])
+                    {
+                        min = j;
+                    }
+
+                    // Swap A[i] and A[min]
+                    temp = A[i];
+                    A[i] = A[min];
+                    A[min] = temp;
+                }
+            }
+
+            Console.Write("Selection sort in A[] is: ");
+            foreach (var item in A)
+            {
+                Console.Write(item + ", ");
             }
         }
     }
