@@ -24,6 +24,9 @@ namespace algorithms_with_csharp
             
             SequentialSearch(A, K);
             MaxElement(A);
+
+            string uniqueElements = UniqueElements(A);
+            Console.WriteLine(uniqueElements);
         }
 
         /// <summary>
@@ -72,6 +75,33 @@ namespace algorithms_with_csharp
             }
 
             Console.WriteLine("The value of the largest element in A[] is: {0}", max);
+        }
+
+        /// <summary>
+        /// Determines whether all the elements in a given array are distinct
+        /// Input: An array A[]
+        /// Output: Return "true" if all the elements in A[] are distinct and "false" otherwise
+        /// </summary>
+        /// <param name="A"> Input an array </param>
+        /// <returns> string of result </returns>
+        private static string UniqueElements(int[] A)
+        {
+            string result;
+
+            for (int i = 0; i < A.Length; i++)
+            {
+                for (int j = i + 1; j < A.Length; j++)
+                {
+                    if (A[i] == A[j])
+                    {
+                        result = "False: Element in A[] not distinct";
+                        return result;
+                    }
+                }
+            }
+
+            result = "True: All the elements in A[] are distinct";
+            return result;
         }
     }
 }
