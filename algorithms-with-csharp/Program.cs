@@ -27,6 +27,8 @@ namespace algorithms_with_csharp
 
             string uniqueElements = UniqueElements(A);
             Console.WriteLine(uniqueElements);
+
+            BinaryDigits(K);
         }
 
         /// <summary>
@@ -102,6 +104,23 @@ namespace algorithms_with_csharp
 
             result = "True: All the elements in A[] are distinct";
             return result;
+        }
+
+        /// <summary>
+        /// The following algorithm finds the number of binary digits in the binary representation of a integer
+        /// Input: An integer
+        /// Output: The number of binary digits in K's binary representation
+        /// </summary>
+        /// <param name="K"> An integer</param>
+        private static void BinaryDigits(int K)
+        {
+            int count = 1;
+            while (K > 1)
+            {
+                count += 1;
+                K /= 2;
+            }
+            Console.WriteLine("The number of binary digits in K is: {0}", count);
         }
     }
 }
