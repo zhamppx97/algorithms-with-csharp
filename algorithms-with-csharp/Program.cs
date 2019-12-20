@@ -12,6 +12,7 @@ namespace algorithms_with_csharp
         static void Main(string[] args)
         {
             int[] A = { 21, 12, 43, 34, 75, 26, 97, 88, 55, 10 };
+            int[] B = { 13, 32, 56, 78, 34, 45, 90, 40, 10, 76};
             int K = 97;
 
             Console.Write("Value in array is: ");
@@ -32,6 +33,8 @@ namespace algorithms_with_csharp
             Console.WriteLine("The number of binary digits in K is: {0}, represent by recursive method", BinRec(K));
 
             SelectionSort(A);
+            Console.WriteLine();
+            BubbleSort(B);
         }
 
         /// <summary>
@@ -197,6 +200,36 @@ namespace algorithms_with_csharp
 
             Console.Write("Selection sort in A[] is: ");
             foreach (var item in A)
+            {
+                Console.Write(item + ", ");
+            }
+        }
+
+        /// <summary>
+        /// Sorts a given array by bubble sort
+        /// Input: An array B[] of orderable elements
+        /// Output: Array B[] sorted in nondecreasing order
+        /// </summary>
+        /// <param name="B"> Input an array </param>
+        private static void BubbleSort(int[] B)
+        {
+            int temp;
+            for (int i = 0; i < B.Length - 1; i++)
+            {
+                for (int j = 0; j < B.Length - 1 - i; j++)
+                {
+                    if (B[j + 1] < B[j])
+                    {
+                        // Swap A[j] and A[j + 1]
+                        temp = B[j + 1];
+                        B[j + 1] = B[j];
+                        B[j] = temp;
+                    }
+                }
+            }
+
+            Console.Write("Bubble sort in B[] is: ");
+            foreach (var item in B)
             {
                 Console.Write(item + ", ");
             }
