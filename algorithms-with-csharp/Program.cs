@@ -12,7 +12,8 @@ namespace algorithms_with_csharp
         static void Main(string[] args)
         {
             int[] A = { 21, 12, 43, 34, 75, 26, 97, 88, 55, 10 };
-            int[] B = { 13, 32, 56, 78, 34, 45, 90, 40, 10, 76};
+            int[] B = { 13, 32, 56, 78, 34, 45, 90, 40, 10, 76 };
+            int[] C = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             int K = 97;
 
             Console.Write("Value in array is: ");
@@ -22,7 +23,7 @@ namespace algorithms_with_csharp
             }
             Console.WriteLine();
             Console.WriteLine("Search key is: {0}", K);
-            
+
             SequentialSearch(A, K);
             MaxElement(A);
 
@@ -35,6 +36,9 @@ namespace algorithms_with_csharp
             SelectionSort(A);
             Console.WriteLine();
             BubbleSort(B);
+
+            Console.WriteLine();
+            MinDistance(C);
         }
 
         /// <summary>
@@ -233,6 +237,29 @@ namespace algorithms_with_csharp
             {
                 Console.Write(item + ", ");
             }
+        }
+
+        /// <summary>
+        /// Input: Array C[] of numbers
+        /// Output: Minimum distance between two of its elements
+        /// </summary>
+        /// <param name="C"> Input an array </param>
+        private static void MinDistance(int[] C)
+        {
+            int dMin = int.MaxValue;
+
+            for (int i = 0; i < C.Length; i++)
+            {
+                for (int j = 0; j < C.Length; j++)
+                {
+                    if (i != j && C[i] - C[j] < dMin)
+                    {
+                        dMin = C[i] - C[j];
+                    }
+                }
+            }
+
+            Console.WriteLine("dMin is: {0}", dMin);
         }
     }
 }
